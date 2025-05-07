@@ -1,0 +1,25 @@
+from datetime import datetime
+
+def calculate_age(birthdate):
+	date_object = datetime.strptime(birthdate, "%d-%m-%Y")
+	today = datetime.today()
+	if ((today.month, today.day ) < (date_object.month, date_object.day)):
+		age = today.year-date_object.year-((today.month, today.day ) < (date_object.month, date_object.day))
+		return age
+	elif((today.month, today.day ) > (date_object.month,date_object.day)):
+		age = today.year-date_object.year- ((today.month, today.day) > (date_object.month, date_object.day))
+		return age
+
+
+
+def convert_salary_to_dollars(salary_in_rupees):
+    salary=salary_in_rupees*0.012
+    return salary
+
+    
+birthdate = input()
+salary_in_rupees = float(input())
+age = calculate_age(birthdate)
+salary_in_dollars = convert_salary_to_dollars(salary_in_rupees)
+print(f"Age: {age}")
+print(f"Salary in dollars: {salary_in_dollars:.2f}")

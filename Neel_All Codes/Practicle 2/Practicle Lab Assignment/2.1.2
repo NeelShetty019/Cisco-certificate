@@ -1,0 +1,33 @@
+dict = {}
+print("Empty Dictionary:",dict)
+n = int(input("Number of items: "))
+for _ in range (n):
+	key = input("key: ")
+	value = input("value: ")
+	dict[key] = value
+print("Dictionary:",dict)
+update_key = input("Enter the key to update: ")
+if update_key in dict:
+	new_value = input("Enter the new value: ")
+	dict[update_key] = new_value
+	print("Value updated")
+else:
+	print("Key not found")
+retrieve_key = input("Enter the key to retrieve: ")
+if retrieve_key in dict:
+	print(f"Key: {retrieve_key}, Value: {dict[retrieve_key]}")
+else:
+	print("Key not found")
+get_key = input("Enter the key to get using the get() method: ")
+value = dict.get(get_key,"Key not found")
+if value != "Key not found":
+	print(f"Key: {get_key}, Value: {value}")
+else:
+	print(value)
+deleted_key = input("Enter the key to delete: ")
+if deleted_key in dict:
+	del dict[deleted_key]
+	print("Deleted")
+else:
+	print("Key not found")
+print("Updated Dictionary:",dict)

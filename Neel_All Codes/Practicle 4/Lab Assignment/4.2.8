@@ -1,0 +1,29 @@
+import pandas as pd
+import numpy as np
+
+# Load the Titanic dataset
+data = pd.read_csv('Titanic-Dataset.csv')
+data = pd.get_dummies(data, columns=['Embarked'], drop_first=True)
+
+survivors_by_gender = data[data['Survived'] == 1]['Sex'].value_counts()
+print(survivors_by_gender)
+non_survived_by_gender = data[data['Survived'] == 0]['Sex'].value_counts()
+print(non_survived_by_gender)
+survivors_by_embarked_s = data[data['Survived'] == 1]['Embarked_S'].value_counts()
+print(survivors_by_embarked_s)
+non_survivors_by_embarked_s = data[data['Survived'] == 0]['Embarked_S'].value_counts()
+print(non_survivors_by_embarked_s)
+children = data[data['Age'] < 18]
+children_survival_rate = children['Survived'].mean()
+print(children_survival_rate)
+adults = data[data['Age'] >= 18]
+adults_survival_rate = adults['Survived'].mean()
+print(adults_survival_rate)
+median_age_survivors = data[data['Survived'] == 1]['Age'].median()
+print(median_age_survivors)
+median_age_non_survivors = data[data['Survived'] == 0]['Age'].median()
+print(median_age_non_survivors)
+median_fare_survivors = data[data['Survived'] == 1]['Fare'].median()
+print(median_fare_survivors)
+median_fare_non_surviors = data[data['Survived'] == 0]['Fare'].median()
+print(median_fare_non_surviors)

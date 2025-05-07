@@ -1,0 +1,11 @@
+import numpy as np
+rows,cols= list(map(int,input().split()))
+matrix= []
+for i in range(rows):
+	row = list(map(int,input().split()))
+	matrix.append(row)
+matrix= np.array(matrix).reshape(rows,cols)
+print(matrix)
+print(matrix.ndim)
+print(matrix.shape)
+print(matrix.size)
